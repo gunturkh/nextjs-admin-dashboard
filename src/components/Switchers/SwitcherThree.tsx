@@ -1,7 +1,10 @@
 import { useState } from "react";
-
-const SwitcherThree = () => {
-  const [enabled, setEnabled] = useState(false);
+type Props = {
+  value: boolean
+  setValue: (data: boolean) => void
+}
+const SwitcherThree = ({ value, setValue }: Props) => {
+  // const [enabled, setEnabled] = useState(props.value);
 
   return (
     <div>
@@ -15,16 +18,15 @@ const SwitcherThree = () => {
             id="toggle3"
             className="sr-only"
             onChange={() => {
-              setEnabled(!enabled);
+              setValue(!value);
             }}
           />
           <div className="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
           <div
-            className={`dot absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition ${
-              enabled && "!right-1 !translate-x-full !bg-primary dark:!bg-white"
-            }`}
+            className={`dot absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition ${value && "!right-1 !translate-x-full !bg-primary dark:!bg-white"
+              }`}
           >
-            <span className={`hidden ${enabled && "!block"}`}>
+            <span className={`hidden ${value && "!block"}`}>
               <svg
                 className="fill-white dark:fill-black"
                 width="11"
@@ -41,7 +43,7 @@ const SwitcherThree = () => {
                 ></path>
               </svg>
             </span>
-            <span className={`${enabled && "hidden"}`}>
+            <span className={`${value && "hidden"}`}>
               <svg
                 className="h-4 w-4 stroke-current"
                 fill="none"

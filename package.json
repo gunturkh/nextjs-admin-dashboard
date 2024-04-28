@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.32.0",
+    "@tanstack/react-query-devtools": "^5.32.0",
     "apexcharts": "^3.45.2",
+    "axios": "^1.6.8",
     "flatpickr": "^4.6.13",
     "jsvectormap": "^1.5.3",
     "next": "14.1.0",
